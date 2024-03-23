@@ -1,0 +1,11 @@
+.headerDesign{
+height: 12vh;
+width: 100vw;
+
+background-color: chocolate;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
