@@ -15,11 +15,10 @@ export const Register = () => {
 
     const inputHandler = (e) => {
         //procedo a bindear
-        setUser((prevState)=>({
-        ...prevState,
-        [e.target.name]: e.target.value
+        setUser((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value
         }))
-        console.log(e.target.value)
     }
 
     return (
