@@ -14,6 +14,11 @@ export const Register = () => {
     //funcion emit que esta aqui en el padre.. se le pasa a custom input
 
     const inputHandler = (e) => {
+        //procedo a bindear
+        setUser((prevState)=>({
+        ...prevState,
+        [e.target.name]: e.target.value
+        }))
         console.log(e.target.value)
     }
 
