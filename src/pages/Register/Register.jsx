@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-
 import "./Register.css"
 import { CInput } from "../../common/CInput/CInput";
+import { CButton } from "../../common/CButton/CButton";
 
 export const Register = () => {
     const [user, setUser] = useState({
@@ -20,9 +20,13 @@ export const Register = () => {
             [e.target.name]: e.target.value
         }))
     }
-
+    //function emit que también esta aqui en el padre.. en este caso para registrar
+    const registerMe = () => {
+        console.log(user, "soy la funcion que va a registrar..")
+    }
     return (
         <div className="registerDesign">
+            <pre>{JSON.stringify(user, null, 2)}</pre>
             <CInput
                 className={"inputDesign"}
                 type={"text"}
@@ -54,6 +58,11 @@ export const Register = () => {
                 name={"password_hash"}
                 value={user.password_hash || ""}
                 onChangeFunction={(e) => inputHandler(e)}
+            />
+            <CButton
+                className={"cButtonDesign"}
+                title={"Register"}
+                functionEmit={registerMe}
             />
         </div>
     )
