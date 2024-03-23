@@ -1,8 +1,10 @@
 .headerDesign{
+
 height: 12vh;
 width: 100vw;
 
-background-color: chocolate;
+background-color: black;
+color: whitesmoke;
 
 display: flex;
 flex-direction: column;
