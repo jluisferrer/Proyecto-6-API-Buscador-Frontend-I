@@ -34,7 +34,11 @@ export const Register = () => {
     const checkError = (e) => {
         const error = validame(e.target.name, e.target.value)
 
-        console.log(error)
+        setUserError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: error,
+            //el truco del almendruco nos dice que seria... nameError: error, emailError: error...
+        }))
     }
     //function emit que también esta aqui en el padre.. en este caso para registrar
     const registerMe = async () => {
@@ -46,6 +50,7 @@ export const Register = () => {
             }
 
             const fetched = await RegisterUser()
+
             console.log(fetched)
         } catch (error) {
             setMsgError(error.message)
@@ -53,9 +58,10 @@ export const Register = () => {
     }
     return (
         <div className="registerDesign">
-            <pre>{JSON.stringify(user, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
             <CInput
-                className={"inputDesign"}
+                className={`inputDesign ${userError.first_nameError !== "" ? "inputDesignError" : ""
+                    }`}
                 type={"text"}
                 placeholder={"first_name"}
                 name={"first_name"}
@@ -63,9 +69,10 @@ export const Register = () => {
                 onChangeFunction={(e) => inputHandler(e)}
                 onBlurFunction={(e) => checkError(e)}
             />
-            {userError.first_nameError}
+            <div className="error">{userError.first_nameError}</div>
             <CInput
-                className={"inputDesign"}
+                 className={`inputDesign ${userError.last_nameError !== "" ? "inputDesignError" : ""
+                }`}
                 type={"text"}
                 placeholder={"last_name"}
                 name={"last_name"}
@@ -73,9 +80,10 @@ export const Register = () => {
                 onChangeFunction={(e) => inputHandler(e)}
                 onBlurFunction={(e) => checkError(e)}
             />
-            {userError.last_nameError}
+             <div className="error">{userError.last_nameError}</div>
             <CInput
-                className={"inputDesign"}
+                 className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""
+                }`}
                 type={"email"}
                 placeholder={"email"}
                 name={"email"}
@@ -83,9 +91,10 @@ export const Register = () => {
                 onChangeFunction={(e) => inputHandler(e)}
                 onBlurFunction={(e) => checkError(e)}
             />
-            {userError.emailError}
+            <div className="error">{userError.emailError}</div>
             <CInput
-                className={"inputDesign"}
+                className={`inputDesign ${userError.password_hashError !== "" ? "inputDesignError" : ""
+            }`}
                 type={"password"}
                 placeholder={"password"}
                 name={"password_hash"}
@@ -93,13 +102,13 @@ export const Register = () => {
                 onChangeFunction={(e) => inputHandler(e)}
                 onBlurFunction={(e) => checkError(e)}
             />
-            {userError.password_hashError}
+            <div className="error">{userError.password_hashError}</div>
             <CButton
                 className={"cButtonDesign"}
                 title={"Register"}
                 functionEmit={registerMe}
             />
-            {msgError}
+            <div className="error">{msgError}</div>        
         </div>
     )
 }
