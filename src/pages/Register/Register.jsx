@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Register.css"
 import { CInput } from "../../common/CInput/CInput";
 import { CButton } from "../../common/CButton/CButton";
 import { RegisterUser } from "../../services/apiCalls";
 import { validame } from "../../utils/function";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+    const navigate = useNavigate()
+
     const [user, setUser] = useState({
         first_name: "",
         last_name: "",
@@ -48,10 +51,13 @@ export const Register = () => {
                     throw new Error("All fields must be filled out")
                 }
             }
+            const fetched = await RegisterUser(user)
 
-            const fetched = await RegisterUser()
+            setMsgError(fetched.message)
+            setTimeout(() => {
+                navigate("/")
+            }, 1200)
 
-            console.log(fetched)
         } catch (error) {
             setMsgError(error.message)
         }
@@ -71,8 +77,8 @@ export const Register = () => {
             />
             <div className="error">{userError.first_nameError}</div>
             <CInput
-                 className={`inputDesign ${userError.last_nameError !== "" ? "inputDesignError" : ""
-                }`}
+                className={`inputDesign ${userError.last_nameError !== "" ? "inputDesignError" : ""
+                    }`}
                 type={"text"}
                 placeholder={"last_name"}
                 name={"last_name"}
@@ -80,10 +86,10 @@ export const Register = () => {
                 onChangeFunction={(e) => inputHandler(e)}
                 onBlurFunction={(e) => checkError(e)}
             />
-             <div className="error">{userError.last_nameError}</div>
+            <div className="error">{userError.last_nameError}</div>
             <CInput
-                 className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""
-                }`}
+                className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""
+                    }`}
                 type={"email"}
                 placeholder={"email"}
                 name={"email"}
@@ -94,7 +100,7 @@ export const Register = () => {
             <div className="error">{userError.emailError}</div>
             <CInput
                 className={`inputDesign ${userError.password_hashError !== "" ? "inputDesignError" : ""
-            }`}
+                    }`}
                 type={"password"}
                 placeholder={"password"}
                 name={"password_hash"}
@@ -108,7 +114,7 @@ export const Register = () => {
                 title={"Register"}
                 functionEmit={registerMe}
             />
-            <div className="error">{msgError}</div>        
+            <div className="error">{msgError}</div>
         </div>
     )
 }
