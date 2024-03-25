@@ -16,8 +16,9 @@ export const Header = () => {
                     <Navigator title={"nickdelusuario"} destination={"/"} />
                     <Navigator title={"log out"} onClick={() => logOut()} />
                 </div>) : (
-                <div>
+                <div className="authMenu">
                     <Navigator title={"register"} destination={"/register"} />
+                    <Navigator title={"login"} destination={"/login"} />
                 </div>
             )}
         </div>
