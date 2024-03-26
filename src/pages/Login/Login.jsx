@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CButton } from "../../common/CButton/CButton";
 import { CInput } from "../../common/CInput/CInput";
 import { validame } from "../../utils/function";
@@ -7,8 +7,11 @@ import { LoginUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
 
+const datosUser = JSON.parse(localStorage.getItem("passport"))
+
 export const Login = () => {
     const navigate = useNavigate()
+    const [tokenStorage, setTokenStorage] = useState(datosUser?.token)
 
     const [credenciales, setCredenciales] = useState({
         email: "",
@@ -21,6 +24,12 @@ export const Login = () => {
     })
 
     const [msgError, setMsgError] = useState("")
+
+    useEffect(() => {
+        if (tokenStorage) {
+            navigate("/");
+        }
+    }, [tokenStorage]);
 
     const inputHandler = (e) => {
         setCredenciales((prevState) => ({
@@ -43,7 +52,7 @@ export const Login = () => {
         try {
             for (let elemento in credenciales) {
                 if (credenciales[elemento] === "") {
-                    throw new Error("Todos los campos tienen que estar rellenos");
+                    throw new Error("All fields must be filled out");
                 }
             }
 
@@ -58,10 +67,12 @@ export const Login = () => {
 
             localStorage.setItem("passport", JSON.stringify(passport))
 
-            setMsgError(`Hola ${decodificado.first_name}, bienvenido`)
+            console.log(decodificado)
+            
+            setMsgError(`Hello ${decodificado.name}, welcome`)
 
             setTimeout(() => {
-                navigate("/")
+                navigate("/profile")
             }, 2000)
 
         } catch (error) {

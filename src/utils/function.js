@@ -4,9 +4,11 @@ export const validame = (type, value) => {
         case "name":
         case "nombre":
         case "first_name":
+        case "firstName":
         case "surname":
         case "cognom":
         case "last_name":
+        case "lastName":    
             if (value.length < 3) {
                 return "Please, the name must have at least three characters."
             }
