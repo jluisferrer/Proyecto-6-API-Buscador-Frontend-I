@@ -13,7 +13,7 @@ export const Header = () => {
     return (
         <div className="headerDesign">
             <Navigator title={"home"} destination={"/"} />
-
+            <Navigator title={"services"} destination={"/services"} />
             {passport?.token ? (
                 <div className="authMenu">
                     <Navigator
