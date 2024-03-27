@@ -6,10 +6,11 @@ import "./Login.css";
 import { LoginUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
+import { Header } from "../../common/Header/Header";
 
-const datosUser = JSON.parse(localStorage.getItem("passport"))
 
 export const Login = () => {
+    const datosUser = JSON.parse(localStorage.getItem("passport"))
     const navigate = useNavigate()
     const [tokenStorage, setTokenStorage] = useState(datosUser?.token)
 
@@ -68,11 +69,11 @@ export const Login = () => {
             localStorage.setItem("passport", JSON.stringify(passport))
 
             console.log(decodificado)
-            
+
             setMsgError(`Hello ${decodificado.name}, welcome`)
 
             setTimeout(() => {
-                navigate("/profile")
+                navigate("/")
             }, 2000)
 
         } catch (error) {
@@ -80,35 +81,41 @@ export const Login = () => {
         }
     };
     return (
-        <div className="loginDesign">
-            <CInput
-                className={`inputDesign ${credencialesError.emailError !== "" ? "inputDesignError" : ""
-                    }`}
-                type={"email"}
-                placeholder={"email"}
-                name={"email"}
-                value={credenciales.email || ""}
-                onChangeFunction={(e) => inputHandler(e)}
-                onBlurFunction={(e) => checkError(e)}
-            />
-            <div className="error">{credencialesError.emailError}</div>
-            <CInput
-                className={`inputDesign ${credencialesError.password_hashError !== "" ? "inputDesignError" : ""
-                    }`}
-                type={"password"}
-                placeholder={"password"}
-                name={"password_hash"}
-                value={credenciales.password_hash || ""}
-                onChangeFunction={(e) => inputHandler(e)}
-                onBlurFunction={(e) => checkError(e)}
-            />
-            <div className="error">{credencialesError.password_hashError}</div>
-            <CButton
-                className={"cButtonDesign"}
-                title={"Login"}
-                functionEmit={loginMe}
-            />
-            <div className="error">{msgError}</div>
-        </div>
+        <>
+            <Header />
+            <div className="loginDesign">
+                <CInput
+                    className={`inputDesign ${credencialesError.emailError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"email"}
+                    placeholder={"email"}
+                    name={"email"}
+                    disabled={""}
+                    value={credenciales.email || ""}
+                    onChangeFunction={(e) => inputHandler(e)}
+                    onBlurFunction={(e) => checkError(e)}
+                />
+                <div className="error">{credencialesError.emailError}</div>
+                <CInput
+                    className={`inputDesign ${credencialesError.password_hashError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"password"}
+                    placeholder={"password"}
+                    name={"password_hash"}
+                    disabled={""}
+                    value={credenciales.password_hash || ""}
+                    onChangeFunction={(e) => inputHandler(e)}
+                    onBlurFunction={(e) => checkError(e)}
+                />
+                <div className="error">{credencialesError.password_hashError}</div>
+                <CButton
+                    className={"cButtonDesign"}
+                    title={"Login"}
+                    functionEmit={loginMe}
+                />
+                <div className="error">{msgError}</div>
+            </div>
+        </>
+
     )
 };
