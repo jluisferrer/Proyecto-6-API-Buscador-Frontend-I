@@ -1,0 +1,18 @@
+.servicesCardDesign{
+    height: 88vh;
+    width: 100vw;
+    margin:0.2;
+    border:1px solid black;
+    border-radius: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    background-color: rgb(20, 132, 147);
+    transition:0.3s;
+}
+.servicesCardDesign:hover{
+    cursor: pointer;
+    background-color: rgb(13, 71, 79);
+    transition: 0.3s;
+    
+}
