@@ -12,20 +12,20 @@ export const Header = () => {
     }
     return (
         <div className="headerDesign">
-            <Navigator title={"home"} destination={"/"} />
-            <Navigator title={"services"} destination={"/services"} />
+            <Navigator title={"Home"} destination={"/"} />
+            <Navigator title={"Services"} destination={"/services"} />
             {passport?.token ? (
                 <div className="authMenu">
                     <Navigator
                         title={passport?.decodificado?.name}
                         destination={"/profile"} />
                     <div onClick={logOut}>
-                        <Navigator title={"log out"} destination={"/"} />
+                        <Navigator title={"Log out"} destination={"/"} />
                     </div>
                 </div>) : (
                 <div className="authMenu">
-                    <Navigator title={"register"} destination={"/register"} />
-                    <Navigator title={"login"} destination={"/login"} />
+                    <Navigator title={"Register"} destination={"/register"} />
+                    <Navigator title={"Login"} destination={"/login"} />
                 </div>
             )}
         </div>
