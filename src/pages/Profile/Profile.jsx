@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css"
-import { GetProfile } from "../../services/apiCalls";
+import { GetProfile, UpdateProfile } from "../../services/apiCalls";
 import { CInput } from "../../common/CInput/CInput";
 import { validame } from "../../utils/function";
 import { Header } from "../../common/Header/Header";
@@ -72,10 +72,22 @@ export const Profile = () => {
         }
     }, [user]);
 
-    const updatedData = ()=> {
-        console.log ("vamos a actualizar no?")
+    const updatedData = async ()=> {
+        try{
+            const fetched = await UpdateProfile (tokenStorage, user)
+            console.log (fetched)
+            if (fetched) {                
+                setUser({
+                  name: fetched.data.name,
+                  lastName: fetched.data.lastName,
+                  email: fetched.data.email
+                });
+                setWrite("disabled");
+              } 
+        }catch (error){
+        console.log(error)
+        }
     }
-
     return (
         <>
             <Header />
@@ -120,7 +132,7 @@ export const Profile = () => {
                             <CButton
                                 className={write === "" ? "cButtonGreen cButtonDesign" : "cButtonDesign"}
                                 title={write === "" ? "Confirm" : "Edit"}
-                                functionEmit={write === "" ? () => updatedData() : () => setWrite("")}
+                                functionEmit={write === "" ? updatedData : () => setWrite("")}
                             />
                         </div>)
                 }
