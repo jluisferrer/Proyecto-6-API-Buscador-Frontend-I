@@ -11,7 +11,7 @@ export const Services = () => {
 
     useEffect(() => {
         const fetchServices = async () => {
-            try {                
+            try {
                 const response = await GetServices(); // Esta función debe manejar la conversión de la respuesta a JSON
                 if (response.success) {
                     setServices(response.data);
@@ -29,13 +29,13 @@ export const Services = () => {
     return (
         <>
             <Header />
-            <div className="servicesDesign"> 
+            <div className="servicesDesign">
                 {error ? (
                     <p>{error}</p>
                 ) : (
                     services.map(service => (
                         <ServicesCard
-                            // key={service.id} 
+                            key={service.id}
                             id={service.id}
                             serviceName={service.serviceName}
                             description={service.description}

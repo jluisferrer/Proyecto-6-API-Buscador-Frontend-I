@@ -12,8 +12,6 @@ export const Appointments = () => {
     const navigate = useNavigate()
     const datosUser = JSON.parse(localStorage.getItem("passport"))
     const [tokenStorage, setTokenStorage] = useState(datosUser?.token)
-
-
     const [appointments, setAppointments] = useState([])
     const [appointmentsData, setAppointmentsData] = useState({
         appointmentDate: "",
@@ -29,11 +27,6 @@ export const Appointments = () => {
 
     const [write, setWrite] = useState("disabled")
     const [loadedData, setLoadedData] = useState(true)
-    // const [user, setUser] = useState({
-    //     name: "",
-    //     lastName: "",
-    //     email: "",
-    // })
     useEffect(() => {
         const RecoverData = async () => {
             try {
@@ -63,7 +56,6 @@ export const Appointments = () => {
             setMsgError(error.message);
         }
     };
-
     return (
         <>
             <Header />
@@ -82,11 +74,10 @@ export const Appointments = () => {
                     }
                 )
                 }
-
                 {!loadedData
                     ? (<div>LOADING</div>)
                     : (<div>
-                        <p>Actualiza tu cita</p>
+                        <p>Reserve ahora su cita</p>
                         {/* <pre>{JSON.stringify(appointmentsData, null, 2)}</pre> */}
                         <CInput
                             className={`inputDesign`}
