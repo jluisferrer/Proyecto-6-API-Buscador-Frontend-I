@@ -11,8 +11,7 @@ export const Services = () => {
 
     useEffect(() => {
         const fetchServices = async () => {
-            try {
-                // Asegúrate de que 'getServices' sea una función que haga una petición HTTP y devuelva una respuesta
+            try {                
                 const response = await GetServices(); // Esta función debe manejar la conversión de la respuesta a JSON
                 if (response.success) {
                     setServices(response.data);
@@ -30,7 +29,7 @@ export const Services = () => {
     return (
         <>
             <Header />
-            <div className="servicesDesign"> {/* Asegúrate de que esta clase exista en tu archivo CSS */}
+            <div className="servicesDesign"> 
                 {error ? (
                     <p>{error}</p>
                 ) : (

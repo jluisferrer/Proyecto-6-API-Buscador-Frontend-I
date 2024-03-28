@@ -11,7 +11,6 @@ export const RegisterUser = async (user) => {
 
   try {
     const response = await fetch(`${root}auth/register`, options);
-
     const data = await response.json();
 
     if (!data.success) {
@@ -47,7 +46,7 @@ export const LoginUser = async (credenciales) => {
 }
 
 export const GetProfile = async (token) => {
-  const options ={
+  const options = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -60,23 +59,23 @@ export const GetProfile = async (token) => {
 
     const data = await response.json()
 
-    if (!data.success){
+    if (!data.success) {
       throw new Error(data.message)
     }
     return data;
-  }catch (error){
+  } catch (error) {
     return error
   }
 }
 
 export const UpdateProfile = async (token, data) => {
-  const options ={
+  const options = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
     },
-    body:JSON.stringify(data)
+    body: JSON.stringify(data)
   }
 
   try {
@@ -84,11 +83,11 @@ export const UpdateProfile = async (token, data) => {
 
     const data = await response.json()
 
-    if (!data.success){
+    if (!data.success) {
       throw new Error(data.message)
     }
     return data;
-  }catch (error){
+  } catch (error) {
     return error
   }
 }
@@ -106,11 +105,45 @@ export const GetServices = async (token) => {
 
     const data = await response.json()
 
-    if(!data.success){
+    if (!data.success) {
       throw new Error(data.message)
     }
     return data;
-  }catch (error){
-    return(error)
+  } catch (error) {
+    return (error)
   }
+}
+
+export const GetAppointments = async (token) => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  }
+  try {
+    const response = await fetch(`${root}appointments`, options)
+    const data = await response.json()
+    if (!data.success) {
+      throw new Error(data.message)
+    }
+    return data;
+  } catch (error) {
+    return (error)
+  }
+}
+export const PostAppointments = async (token, appointmentsData) => {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(appointmentsData)
+  };
+  const response = await fetch(`${root}appointments`, options)
+  const data = await response.json()
+
+  return data;
 }

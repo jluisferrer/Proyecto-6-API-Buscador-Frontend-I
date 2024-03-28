@@ -22,10 +22,10 @@
     background-color: darkred;
 }
 
-.cButtonGreeen {
+.cButtonGreen {
     background-color: green;
 }
 
-.cButtonGreeen:hover {
+.cButtonGreen:hover {
     background-color: darkgreen;
 }

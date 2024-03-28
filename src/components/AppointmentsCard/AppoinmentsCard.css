@@ -1,0 +1,20 @@
+.appoinmentsCardDesign {
+    height: 8vh;
+    width: 100vw;
+
+    margin: 0.2rem;
+    border: 1px solid black;
+    border-radius: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    transition: 0.5s;
+    background-color: turquoise;
+}
+
+.appoinmentsCardDesign:hover{
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: darkturquoise;
+}
