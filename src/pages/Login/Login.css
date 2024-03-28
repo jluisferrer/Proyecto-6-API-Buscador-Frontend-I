@@ -1,16 +1,18 @@
-.homeDesign {
+.loginDesign {
 
     height: 88vh;
     width: 100vw;
-    background-image: url(../../img/tatooStudio.jpg);
+
     background-color: white;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     color: greenyellow;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.error {
+    height: 1em;
+    color: red;
 }

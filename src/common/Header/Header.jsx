@@ -1,23 +1,32 @@
 import { Navigator } from "../Navigator/Navigator";
+import { useNavigate } from "react-router-dom";
 import "./Header.css"
 
 export const Header = () => {
-    const token = false
+    const navigate = useNavigate()
+    const passport = JSON.parse(localStorage.getItem("passport"))
 
     const logOut = () => {
-        //Funcion para desloguear..
+        localStorage.removeItem("passport")
+        navigate("/login")
     }
     return (
         <div className="headerDesign">
-            <Navigator title={"home"} destination={"/"} />
-
-            {token ? (
-                <div>
-                    <Navigator title={"nickdelusuario"} destination={"/"} />
-                    <Navigator title={"log out"} onClick={() => logOut()} />
+            <Navigator title={"Home"} destination={"/"} />
+            <Navigator title={"Services"} destination={"/services"} />
+            <Navigator title={"Appointments"} destination={"/appointments"} />
+            {passport?.token ? (
+                <div className="authMenu">
+                    <Navigator
+                        title={passport?.decodificado?.name}
+                        destination={"/profile"} />
+                    <div onClick={logOut}>
+                        <Navigator title={"Log out"} destination={"/"} />
+                    </div>
                 </div>) : (
-                <div>
-                    <Navigator title={"register"} destination={"/register"} />
+                <div className="authMenu">
+                    <Navigator title={"Register"} destination={"/register"} />
+                    <Navigator title={"Login"} destination={"/login"} />
                 </div>
             )}
         </div>
