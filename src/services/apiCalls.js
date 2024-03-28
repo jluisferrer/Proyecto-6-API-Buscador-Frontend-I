@@ -147,3 +147,26 @@ export const PostAppointments = async (token, appointmentsData) => {
 
   return data;
 }
+
+export const DeleteUserAppointments = async (token, appointmentid)=>{
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  };
+  try {
+    const response = await fetch(`${root}appointments/${appointmentid}`, options);
+
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error(data.message);
+    }
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+}

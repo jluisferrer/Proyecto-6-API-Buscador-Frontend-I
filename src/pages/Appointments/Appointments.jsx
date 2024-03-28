@@ -69,7 +69,6 @@ export const Appointments = () => {
                                 appointmentDate={appointment.appointmentDate}
                                 appointmentId={appointment.id}
                             />
-
                         )
                     }
                 )
@@ -97,7 +96,7 @@ export const Appointments = () => {
                         />
                         <CButton
                             className={write === "" ? "cButtonGreen cButtonDesign" : "cButtonDesign"}
-                            title={write === "" ? "Confirm" : "Edit"}
+                            title={write === "" ? "Confirmar" : "Reservar"}
                             functionEmit={write === "" ? putAppointment : () => setWrite("")}
                         />
                     </div>)
