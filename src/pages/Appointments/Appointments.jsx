@@ -59,7 +59,7 @@ export const Appointments = () => {
     return (
         <>
             <Header />
-            <div className="appointmentsDesign">
+            <div className="appointmentsDesign"><p>Sus proximas citas</p>
                 {appointments?.map(
                     appointment => {
                         return (
@@ -67,7 +67,7 @@ export const Appointments = () => {
                                 key={appointment.id}
                                 service_id={appointment.service.serviceName}
                                 appointmentDate={appointment.appointmentDate}
-                                appointmentId={appointment.id}
+                                onDelete={funcionDelete}
                             />
                         )
                     }

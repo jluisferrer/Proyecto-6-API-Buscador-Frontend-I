@@ -14,12 +14,11 @@ export const Header = () => {
         <div className="headerDesign">
             <Navigator title={"Home"} destination={"/"} />
             <Navigator title={"Services"} destination={"/services"} />
-            <Navigator title={"Appointments"} destination={"/appointments"} />
+
             {passport?.token ? (
                 <div className="authMenu">
-                    <Navigator
-                        title={passport?.decodificado?.name}
-                        destination={"/profile"} />
+                    <Navigator title={passport?.decodificado?.name} destination={"/profile"} />
+                    <Navigator title={"Appointments"} destination={"/appointments"} />
                     <div onClick={logOut}>
                         <Navigator title={"Log out"} destination={"/"} />
                     </div>
