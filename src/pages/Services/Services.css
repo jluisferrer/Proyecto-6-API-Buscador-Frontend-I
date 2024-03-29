@@ -4,6 +4,7 @@
     width: 100vw;
 
     background-color: rgb(153, 205, 55);
+    background-image: url(../../img/tatooStudio.jpg);
 
     display: flex;
     flex-direction: row;

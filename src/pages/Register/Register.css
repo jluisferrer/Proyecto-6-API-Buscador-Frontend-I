@@ -5,6 +5,7 @@
 
     background-color: white;
     color: greenyellow;
+    background-image: url(../../img/tatooStudio.jpg);
 
     display: flex;
     flex-direction: column;
