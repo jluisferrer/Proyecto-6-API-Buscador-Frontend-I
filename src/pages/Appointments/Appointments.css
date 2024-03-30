@@ -4,8 +4,8 @@
     width: 100vw;
 
     background-color: yellow;
-    color: black;
-
+    color: yellow;
+    background-image: url(../../img/tatooStudio.jpg);
     display: flex;
     flex-direction: column;
     justify-content: center;

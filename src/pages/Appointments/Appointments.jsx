@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Appointments.css"
-import { GetAppointments, PostAppointments } from "../../services/apiCalls";
+import { DeleteUserAppointments, GetAppointments, PostAppointments } from "../../services/apiCalls";
 import { CInput } from "../../common/CInput/CInput";
 import { validame } from "../../utils/function";
 import { CButton } from "../../common/CButton/CButton";
@@ -17,6 +17,7 @@ export const Appointments = () => {
         appointmentDate: "",
         service_id: ""
     })
+    
 
     const appointmentsInputHandler = (e) => {
         setAppointmentsData((prevState) => ({
@@ -45,8 +46,9 @@ export const Appointments = () => {
     const putAppointment = async () => {
         try {
             const fetched = await PostAppointments(tokenStorage, appointmentsData);
-            console.log(fetched)
+            
             if (fetched.success) {
+                window.location.reload()
                 navigate("/appointments");
             } else {
                 console.error(fetched.message);
@@ -56,10 +58,20 @@ export const Appointments = () => {
             setMsgError(error.message);
         }
     };
+
+    const deleteAppointment = async( tokenStorage,appointmentId)=> {
+        try{
+            const fetched = await DeleteUserAppointments(tokenStorage,appointmentId)
+            console.log(fetched.message)
+        }catch(error){
+            console.log(error)
+        }const updatedAppointments = appointments.filter(appointment => appointment.id !== appointmentId);
+        setAppointments(updatedAppointments);
+    }
     return (
         <>
             <Header />
-            <div className="appointmentsDesign"><p>Sus proximas citas</p>
+            <div className="appointmentsDesign"><p>Sus proximas citas:</p>
                 {appointments?.map(
                     appointment => {
                         return (
@@ -67,7 +79,8 @@ export const Appointments = () => {
                                 key={appointment.id}
                                 service_id={appointment.service.serviceName}
                                 appointmentDate={appointment.appointmentDate}
-                                onDelete={funcionDelete}
+                                appointmentId={appointment.id}
+                                onDelete={()=>deleteAppointment(tokenStorage, appointment.id)}
                             />
                         )
                     }
@@ -76,7 +89,7 @@ export const Appointments = () => {
                 {!loadedData
                     ? (<div>LOADING</div>)
                     : (<div>
-                        <p>Reserve ahora su cita</p>
+                        <p>Reserve ahora su cita:</p>
                         {/* <pre>{JSON.stringify(appointmentsData, null, 2)}</pre> */}
                         <CInput
                             className={`inputDesign`}
