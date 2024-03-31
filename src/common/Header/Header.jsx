@@ -17,8 +17,8 @@ export const Header = () => {
 
             {passport?.token ? (
                 <div className="authMenu">
-                    <Navigator title={passport?.decodificado?.name} destination={"/profile"} />
                     <Navigator title={"Appointments"} destination={"/appointments"} />
+                    <Navigator title={passport?.decodificado?.name} destination={"/profile"} />
                     <div onClick={logOut}>
                         <Navigator title={"Log out"} destination={"/"} />
                     </div>

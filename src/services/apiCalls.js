@@ -192,7 +192,7 @@ export const GetUsers = async (token) => {
   }
 }
 
-export const DeleteUsers = async (userId, token) => {
+export const DeleteUsers = async (id, token) => {
   const options = {
     method: "DELETE",
     headers: {
@@ -201,7 +201,7 @@ export const DeleteUsers = async (userId, token) => {
     }
   };
   try {
-    const response = await fetch(`${root}users/${userId}`, options);
+    const response = await fetch(`${root}users/${id}`, options);
 
     const data = await response.json();
 
