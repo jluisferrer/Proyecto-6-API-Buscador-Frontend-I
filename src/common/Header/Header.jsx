@@ -12,6 +12,7 @@ export const Header = () => {
     }
     return (
         <div className="headerDesign">
+            <img src="ruta_del_logo.png" alt="Logo de la empresa" />
             <Navigator title={"Home"} destination={"/"} />
             <Navigator title={"Services"} destination={"/services"} />
 
@@ -28,6 +29,9 @@ export const Header = () => {
                     <Navigator title={"Login"} destination={"/login"} />
                 </div>
             )}
+            {passport?.token && passport?.decodificado?.roleName === "super_admin" ? (<div className="authMenu">
+                <Navigator title={"SUPERADMIN"} destination={"/superadmin"} />
+            </div>) :<div className="authMenu"></div>}
         </div>
     )
 }
