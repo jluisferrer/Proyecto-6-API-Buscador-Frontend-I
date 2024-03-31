@@ -31,7 +31,6 @@ export const Profile = () => {
     const [msgError, setMsgError] = useState("")
 
     const inputHandler = (e) => {
-
         setUser((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value,
@@ -47,7 +46,6 @@ export const Profile = () => {
         }))
     }
     useEffect(() => {
-        // console.log("tokenstorage", tokenStorage)       
         if (!tokenStorage) {
             navigate("/")
         }
@@ -72,20 +70,19 @@ export const Profile = () => {
         }
     }, [user]);
 
-    const updatedData = async ()=> {
-        try{
-            const fetched = await UpdateProfile (tokenStorage, user)
-            console.log (fetched)
-            if (fetched) {                
+    const updatedData = async () => {
+        try {
+            const fetched = await UpdateProfile(tokenStorage, user)
+            if (fetched) {
                 setUser({
-                  name: fetched.data.name,
-                  lastName: fetched.data.lastName,
-                  email: fetched.data.email
+                    name: fetched.data.name,
+                    lastName: fetched.data.lastName,
+                    email: fetched.data.email
                 });
                 setWrite("disabled");
-              } 
-        }catch (error){
-        console.log(error)
+            }
+        } catch (error) {
+            setMsgError(error.message);
         }
     }
     return (

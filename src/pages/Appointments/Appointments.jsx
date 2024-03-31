@@ -14,15 +14,32 @@ export const Appointments = () => {
     const [tokenStorage, setTokenStorage] = useState(datosUser?.token)
     const [appointments, setAppointments] = useState([])
     const [appointmentsData, setAppointmentsData] = useState({
+        service_id: "",
         appointmentDate: "",
-        service_id: ""
+        appointmentId: ""
     })
-    
+    const [appointmentsDataError, setAppointmentsDataError] = useState({
+        service_idError: "",
+        appointmentDateError: "",
+        appointmentIdError: "",
+    })
 
-    const appointmentsInputHandler = (e) => {
+    const [msgError, setMsgError] = useState("")
+
+
+    const InputHandler = (e) => {
         setAppointmentsData((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value
+        }))
+    }
+
+    const checkError = (e) => {
+        const error = validame(e.target.name, e.target.value)
+
+        setAppointmentsDataError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: error,
         }))
     }
 
@@ -34,7 +51,7 @@ export const Appointments = () => {
                 const fetched = await GetAppointments(tokenStorage);
                 setAppointments(fetched.data);
             } catch (error) {
-                console.log(error);
+                setMsgError(error.message);
             }
         };
         if (appointments?.length === 0) {
@@ -45,7 +62,7 @@ export const Appointments = () => {
     const putAppointment = async () => {
         try {
             const fetched = await PostAppointments(tokenStorage, appointmentsData);
-            
+
             if (fetched.success) {
                 window.location.reload()
                 navigate("/appointments");
@@ -58,13 +75,13 @@ export const Appointments = () => {
         }
     };
 
-    const deleteAppointment = async( tokenStorage,appointmentId)=> {
-        try{
-            const fetched = await DeleteUserAppointments(tokenStorage,appointmentId)
-            console.log(fetched.message)
-        }catch(error){
-            console.log(error)
-        }const updatedAppointments = appointments.filter(appointment => appointment.id !== appointmentId);
+    const deleteAppointment = async (tokenStorage, appointmentId) => {
+        try {
+            const fetched = await DeleteUserAppointments(tokenStorage, appointmentId)
+            setAppointments(fetched.data)
+        } catch (error) {
+            setMsgError(error.message);
+        } const updatedAppointments = appointments.filter(appointment => appointment.id !== appointmentId);
         setAppointments(updatedAppointments);
     }
     return (
@@ -79,7 +96,7 @@ export const Appointments = () => {
                                 service_id={appointment.service.serviceName}
                                 appointmentDate={appointment.appointmentDate}
                                 appointmentId={appointment.id}
-                                onDelete={()=>deleteAppointment(tokenStorage, appointment.id)}
+                                onDelete={() => deleteAppointment(tokenStorage, appointment.id)}
                             />
                         )
                     }
@@ -91,20 +108,22 @@ export const Appointments = () => {
                         <p>Reserve ahora su cita:</p>
                         {/* <pre>{JSON.stringify(appointmentsData, null, 2)}</pre> */}
                         <CInput
-                            className={`inputDesign`}
+                            className={`inputDesign ${appointmentsDataError.appointmentDateError !== "" ? "inputDesignError" : ""}`}
                             type={"date"}
                             placeholder={""}
                             name={"appointmentDate"}
                             value={appointmentsData.appointmentDate || ""}
-                            onChangeFunction={(e) => appointmentsInputHandler(e)}
+                            onChangeFunction={(e) => InputHandler(e)}
+                            onBlurFunction={(e) => checkError(e)}
                         />
                         <CInput
-                            className={`inputDesign`}
+                            className={`inputDesign ${appointmentsDataError.service_idError !== "" ? "inputDesignError" : ""}`}
                             type={"text"}
                             placeholder={"Service Id"}
                             name={"service_id"}
                             value={appointmentsData.service_id || ""}
-                            onChangeFunction={(e) => appointmentsInputHandler(e)}
+                            onChangeFunction={(e) => InputHandler(e)}
+                            onBlurFunction={(e) => checkError(e)}
                         />
                         <CButton
                             className={write === "" ? "cButtonGreen cButtonDesign" : "cButtonDesign"}
