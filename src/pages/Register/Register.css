@@ -3,9 +3,13 @@
     height: 88vh;
     width: 100vw;
 
-    background-color: white;
-    color: greenyellow;
+
     background-image: url(../../img/tatooStudio.jpg);
+    color: greenyellow;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     display: flex;
     flex-direction: column;

@@ -1,12 +1,13 @@
 .profileDesign {
-
     height: 88vh;
     width: 100vw;
 
-    background-color: white;
     background-image: url(../../img/tatooStudio.jpg);
     color: black;
-    
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     display: flex;
     flex-direction: column;
