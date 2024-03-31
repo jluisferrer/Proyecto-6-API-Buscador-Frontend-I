@@ -5,6 +5,8 @@
     border: 0.2em solid black;
     border-radius: 0.5em;
     margin: 1em;
+    font-weight: bold;
+    color: black;
 }
 
 .inputDesignError {

@@ -37,7 +37,6 @@ export const Appointments = () => {
                 console.log(error);
             }
         };
-
         if (appointments?.length === 0) {
             RecoverData();
         }
