@@ -1,0 +1,15 @@
+.superAdminDesign {
+    overflow: auto;
+    height: 88vh;
+    width: 100vw;
+
+    background-color: white;
+    background-image: url(../../img/tatooStudio.jpg);
+    color: black;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
