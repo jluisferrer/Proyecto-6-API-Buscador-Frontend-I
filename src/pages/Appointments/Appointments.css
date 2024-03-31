@@ -1,4 +1,5 @@
 .appointmentsDesign {
+    overflow: auto;
     height: 88vh;
     width: 100vw;
 

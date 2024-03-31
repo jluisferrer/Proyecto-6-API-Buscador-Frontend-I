@@ -1,7 +1,6 @@
 import "./AppoinmentsCard.css"
 
 export const AppointmentsCard = ({ service_id, appointmentDate, appointmentId, onDelete }) => {
-    // console.log(appointmentId)
     return (
         <div className="appoinmentsCardDesign">
             <div>Nombre del servicio:{service_id}</div>

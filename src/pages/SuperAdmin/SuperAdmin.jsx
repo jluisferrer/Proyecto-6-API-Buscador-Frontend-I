@@ -18,7 +18,7 @@ export const SuperAdminPanel = () => {
                     const fetched = await GetUsers(tokenStorage)
                     setUsers(fetched.data)
                 } catch (error) {
-                    console.log(error)
+                    setMsgError(error.message);
                 }
             }
             BringData()
@@ -27,13 +27,12 @@ export const SuperAdminPanel = () => {
     }, [users])
 
     const DeleteUser = async (id) =>  {
-        console.log({id})
         try{
         const fetched = await DeleteUsers (id, tokenStorage)
-        console.log(fetched)
+        setUsers(fetched.data)
         setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
         } catch (error){
-            console.log(error)
+            setMsgError(error.message);
         }
     }
     return (
