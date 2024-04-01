@@ -12,7 +12,7 @@ export const Header = () => {
     }
     return (
         <div className="headerDesign">
-            <img src="ruta_del_logo.png" alt="Logo de la empresa" />
+            <img className="logo" src="src/img/logo2.jpg" alt="Logo de la empresa" />
             <Navigator title={"Home"} destination={"/"} />
             <Navigator title={"Services"} destination={"/services"} />
 

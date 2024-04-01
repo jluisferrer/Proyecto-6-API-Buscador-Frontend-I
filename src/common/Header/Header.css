@@ -8,7 +8,7 @@ color: whitesmoke;
 
 display: flex;
 flex-direction: row;
-justify-content: flex-end;
+justify-content: space-between;
 align-items: flex-end;
 position: relative;
 z-index: 1000;
@@ -17,4 +17,11 @@ z-index: 1000;
 .authMenu{
     display: flex;
     flex-direction: row;
+}
+
+.logo{
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    float: right;
 }
