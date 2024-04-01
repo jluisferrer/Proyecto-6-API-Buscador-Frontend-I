@@ -5,7 +5,6 @@ import "./Header.css"
 export const Header = () => {
     const navigate = useNavigate()
     const passport = JSON.parse(localStorage.getItem("passport"))
-
     const logOut = () => {
         localStorage.removeItem("passport")
         navigate("/login")
@@ -15,7 +14,6 @@ export const Header = () => {
             <img className="logo" src="src/img/logo2.jpg" alt="Logo de la empresa" />
             <Navigator title={"Home"} destination={"/"} />
             <Navigator title={"Services"} destination={"/services"} />
-
             {passport?.token ? (
                 <div className="authMenu">
                     <Navigator title={"Appointments"} destination={"/appointments"} />
@@ -31,7 +29,7 @@ export const Header = () => {
             )}
             {passport?.token && passport?.decodificado?.roleName === "super_admin" ? (<div className="authMenu">
                 <Navigator title={"SUPERADMIN"} destination={"/superadmin"} />
-            </div>) :<div className="authMenu"></div>}
+            </div>) : <div className="authMenu"></div>}
         </div>
     )
 }

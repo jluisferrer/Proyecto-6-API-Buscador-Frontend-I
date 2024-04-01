@@ -14,10 +14,10 @@
     color: white;
 }
 
-.appoinmentsCardDesign:hover{
+.appoinmentsCardDesign:hover {
     cursor: pointer;
     transition: 0.5s;
-    background-color: darkturquoise;
+    background-color: #18232d;
 }
 
 .deleteDesign {
@@ -29,10 +29,10 @@
     align-items: center;
     background-color: red;
     transition: 0.5s;
-    border-radius: 1em ;
+    border-radius: 1em;
 }
 
-.deleteDesign:hover{
+.deleteDesign:hover {
     transition: 0.5s;
     background-color: darkred;
 }

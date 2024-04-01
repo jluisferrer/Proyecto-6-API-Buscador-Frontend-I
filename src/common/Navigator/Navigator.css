@@ -7,7 +7,7 @@
     margin: 1em;
 }
 
-.navigatorDesign:hover{
+.navigatorDesign:hover {
     color: grey;
     transition: 0.2s;
     cursor: pointer;

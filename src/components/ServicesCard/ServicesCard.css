@@ -13,7 +13,7 @@
 }
 .servicesCardDesign:hover{
     cursor: pointer;
-    background-color: rgb(13, 71, 79);
+    background-color:  #18232d;;
     transition: 0.3s;
     
 }

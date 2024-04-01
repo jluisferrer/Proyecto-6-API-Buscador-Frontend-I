@@ -26,9 +26,7 @@ export const Register = () => {
 
     const [msgError, setMsgError] = useState("")
 
-    //funcion emit que esta aqui en el padre.. se le pasa a custom input
     const inputHandler = (e) => {
-        //procedo a bindear
         setUser((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value
@@ -41,10 +39,9 @@ export const Register = () => {
         setUserError((prevState) => ({
             ...prevState,
             [e.target.name + "Error"]: error,
-            //el truco del almendruco nos dice que seria... nameError: error, emailError: error...
         }))
     }
-    //function emit que también esta aqui en el padre.. en este caso para registrar
+
     const registerMe = async () => {
         try {
             for (let elemento in user) {
@@ -67,7 +64,6 @@ export const Register = () => {
         <>
             <Header />
             <div className="registerDesign">
-                {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
                 <CInput
                     className={`inputDesign ${userError.first_nameError !== "" ? "inputDesignError" : ""
                         }`}
@@ -120,6 +116,5 @@ export const Register = () => {
                 <div className="error">{msgError}</div>
             </div>
         </>
-
     )
 }

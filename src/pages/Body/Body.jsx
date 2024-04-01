@@ -10,7 +10,6 @@ import { SuperAdminPanel } from "../../pages/SuperAdmin/SuperAdmin";
 export const Body = () => {
     return (
         <Routes>
-            {/*Aqui iran cada una de las rutas a las vistas */}
             <Route path="*" element={<Navigate to={"/"} replace />} />
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />

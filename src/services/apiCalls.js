@@ -38,7 +38,6 @@ export const LoginUser = async (credenciales) => {
     if (!data.success) {
       throw new Error(data.message)
     }
-
     return data;
   } catch (error) {
     return error

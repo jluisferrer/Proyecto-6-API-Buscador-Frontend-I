@@ -1,27 +1,25 @@
-.headerDesign{
+.headerDesign {
+    height: 12vh;
+    width: 100vw;
 
-height: 12vh;
-width: 100vw;
+    background-color: black;
+    color: whitesmoke;
 
-background-color: black;
-color: whitesmoke;
-
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: flex-end;
-position: relative;
-z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1000;
 }
 
-.authMenu{
+.authMenu {
     display: flex;
     flex-direction: row;
 }
 
-.logo{
+.logo {
     max-height: 100%;
     max-width: 100%;
     object-fit: contain;
-    float: right;
 }

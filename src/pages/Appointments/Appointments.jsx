@@ -106,7 +106,6 @@ export const Appointments = () => {
                     ? (<div>LOADING</div>)
                     : (<div>
                         <p>Reserve ahora su cita:</p>
-                        {/* <pre>{JSON.stringify(appointmentsData, null, 2)}</pre> */}
                         <CInput
                             className={`inputDesign ${appointmentsDataError.appointmentDateError !== "" ? "inputDesignError" : ""}`}
                             type={"date"}
