@@ -1,4 +1,5 @@
-![readme](https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I/assets/157707370/71b8ea83-e490-40af-aab8-005dc1975828)
+![readme](https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I/assets/157707370/71b8ea83-e490-40af-aab8-005dc1975828) ![image](https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I/assets/157707370/20267e96-8b57-4a3b-862f-c880d1b93602)
+
 
 
 # Tatto Studio Frontend ✒️
@@ -10,12 +11,12 @@ Este es mi sexto proyecto en la academia GeekHubs asi como mi primer proyecto us
 - [Tecnologias usadas ⚙](#tecnologias-)
 - [Conexión con el proyecto backend 🗺️](#conexión-)
 - [Instalación 🏗️](#instalacion-)
-- [Autor 🎨](#autor-)
 - [Tiempo de realización ⏳](#tiempo-de-realizacion-)
+- [Autor 🎨](#autor-)
+
 
 
 ## Tecnologias usadas
-<summary>Tecnologias usadas</summary>
 
 ![Static Badge](https://img.shields.io/badge/React-%2361DAFB?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=black) ![Static Badge](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&logo=javascript&logoColor=F0DB4F&labelColor=black)
 
@@ -26,7 +27,7 @@ Este es mi sexto proyecto en la academia GeekHubs asi como mi primer proyecto us
 https://github.com/jluisferrer/Proyecto-4-Tattoo-Studio
 
 ## Instalación
-<summary>Instalacion</summary>
+
 
 **1**
 
@@ -49,20 +50,17 @@ npm install
 npm run dev
 ```
 
-
-## Autor 🎨
-<summary>Autor</summary>
-
-- **JOSE LUIS FERRER**
-
-<a href="https://linkedin.com/in/jose-luis-ferrer-martinez/" target="blank"><img align="left" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-
-<a href="https://github.com/jluisferrer/" target="blank"><img align="left" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="jose-luis-ferrer-martinez/"/></a>
-
 ## Tiempo de realización ⏳
+
 
 - Nueve dias
 
 
+## AUTOR 🎨
+
+- **JOSE LUIS FERRER**
 
 
+<a href="https://linkedin.com/in/jose-luis-ferrer-martinez/" target="blank"><img align="left" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+
+<a href="https://github.com/jluisferrer/" target="blank"><img align="left" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="jose-luis-ferrer-martinez/"/></a>
