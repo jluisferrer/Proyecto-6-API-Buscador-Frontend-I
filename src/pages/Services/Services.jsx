@@ -3,7 +3,6 @@ import { ServicesCard } from "../../components/ServicesCard/ServicesCard";
 import { GetServices } from "../../services/apiCalls";
 import "./Services.css";
 import { Header } from "../../common/Header/Header";
-import { useNavigate } from "react-router-dom";
 
 export const Services = () => {
     const [services, setServices] = useState([]);
@@ -12,7 +11,7 @@ export const Services = () => {
     useEffect(() => {
         const fetchServices = async () => {
             try {
-                const response = await GetServices(); // Esta función debe manejar la conversión de la respuesta a JSON
+                const response = await GetServices();
                 if (response.success) {
                     setServices(response.data);
                 } else {
@@ -24,8 +23,7 @@ export const Services = () => {
         };
 
         fetchServices();
-    }, []); // Las dependencias están vacías para que el efecto se ejecute solo una vez al montar el componente
-
+    }, []);
     return (
         <>
             <Header />

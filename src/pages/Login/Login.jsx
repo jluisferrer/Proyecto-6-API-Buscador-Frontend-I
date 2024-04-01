@@ -41,7 +41,6 @@ export const Login = () => {
 
     const checkError = (e) => {
         const error = validame(e.target.name, e.target.value)
-
         setCredencialesError((prevState) => ({
             ...prevState,
             [e.target.name + "Error"]: error,
@@ -56,26 +55,17 @@ export const Login = () => {
                     throw new Error("All fields must be filled out");
                 }
             }
-
             const fetched = await LoginUser(credenciales);
-
             const decodificado = decodeToken(fetched.token)
-
             const passport = {
                 token: fetched.token,
                 decodificado: decodificado,
             }
-
             localStorage.setItem("passport", JSON.stringify(passport))
-
-            console.log(decodificado)
-
             setMsgError(`Hello ${decodificado.name}, welcome`)
-
             setTimeout(() => {
                 navigate("/")
             }, 2000)
-
         } catch (error) {
             setMsgError(error.message);
         }
@@ -116,6 +106,5 @@ export const Login = () => {
                 <div className="error">{msgError}</div>
             </div>
         </>
-
     )
 };

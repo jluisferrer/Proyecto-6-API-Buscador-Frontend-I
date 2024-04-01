@@ -38,7 +38,6 @@ export const LoginUser = async (credenciales) => {
     if (!data.success) {
       throw new Error(data.message)
     }
-
     return data;
   } catch (error) {
     return error
@@ -148,7 +147,7 @@ export const PostAppointments = async (token, appointmentsData) => {
   return data;
 }
 
-export const DeleteUserAppointments = async (token, appointmentid)=>{
+export const DeleteUserAppointments = async (token, appointmentId) => {
   const options = {
     method: "DELETE",
     headers: {
@@ -157,7 +156,51 @@ export const DeleteUserAppointments = async (token, appointmentid)=>{
     }
   };
   try {
-    const response = await fetch(`${root}appointments/${appointmentid}`, options);
+    const response = await fetch(`${root}appointments/${appointmentId}`, options);
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error(data.message);
+    }
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
+
+export const GetUsers = async (token) => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  }
+  try {
+    const response = await fetch(`${root}users`, options);
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error(data.message);
+    }
+    return data;
+
+  } catch (error) {
+    return error
+  }
+}
+
+export const DeleteUsers = async (id, token) => {
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  };
+  try {
+    const response = await fetch(`${root}users/${id}`, options);
 
     const data = await response.json();
 

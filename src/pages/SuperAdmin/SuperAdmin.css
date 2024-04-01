@@ -1,16 +1,18 @@
-.profileDesign {
+.superAdminDesign {
+    overflow: auto;
     height: 88vh;
     width: 100vw;
 
     background-image: url(../../img/tatooStudio.jpg);
-    color: black;
     background-color: white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    color: black;
+
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
