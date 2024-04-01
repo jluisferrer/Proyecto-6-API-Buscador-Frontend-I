@@ -7,7 +7,9 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: greenyellow;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
 
     display: flex;
     flex-direction: column;
