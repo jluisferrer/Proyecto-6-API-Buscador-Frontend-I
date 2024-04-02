@@ -1,5 +1,5 @@
-![readme](https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I/assets/157707370/71b8ea83-e490-40af-aab8-005dc1975828)
 
+![logo2](https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I/assets/157707370/5b47b589-8e70-4f53-8133-9bc89e173cab)
 
 
 # Tatto Studio Frontend ✒️
