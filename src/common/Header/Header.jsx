@@ -13,22 +13,22 @@ export const Header = () => {
         <div className="headerDesign">
             <img className="logo" src="src/img/logo2.jpg" alt="Logo de la empresa" />
             <Navigator title={"Home"} destination={"/"} />
-            <Navigator title={"Services"} destination={"/services"} />
+            <Navigator title={"Servicios"} destination={"/services"} />
             {passport?.token ? (
                 <div className="authMenu">
-                    <Navigator title={"Appointments"} destination={"/appointments"} />
+                    <Navigator title={"Mis citas"} destination={"/appointments"} />
                     <Navigator title={passport?.decodificado?.name} destination={"/profile"} />
                     <div onClick={logOut}>
                         <Navigator title={"Log out"} destination={"/"} />
                     </div>
                 </div>) : (
                 <div className="authMenu">
-                    <Navigator title={"Register"} destination={"/register"} />
+                    <Navigator title={"Registrar"} destination={"/register"} />
                     <Navigator title={"Login"} destination={"/login"} />
                 </div>
             )}
             {passport?.token && passport?.decodificado?.roleName === "super_admin" ? (<div className="authMenu">
-                <Navigator title={"SUPERADMIN"} destination={"/superadmin"} />
+                <Navigator title={"ADMINISTRACION"} destination={"/superadmin"} />
             </div>) : <div className="authMenu"></div>}
         </div>
     )

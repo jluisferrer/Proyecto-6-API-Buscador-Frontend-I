@@ -13,6 +13,5 @@ export const Home = () => {
                 En nuestro estudio, también encontrarás una exclusiva selección de piercings y artículos de arte corporal para venta, cuidadosamente elegidos para garantizar la calidad y satisfacer tus necesidades. Visítanos y deja que nuestro equipo te guíe en el camino hacia una nueva forma de expresión artística.
             </div>
         </>
-
     )
 }

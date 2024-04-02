@@ -87,10 +87,11 @@ export const Appointments = () => {
     return (
         <>
             <Header />
-            <div className="appointmentsDesign"><p>Sus proximas citas:</p>
-                {appointments?.map(
-                    appointment => {
-                        return (
+            <div className="appointmentsDesign">
+                {appointments?.length > 0 ? (
+                    <>
+                        <p>Sus próximas citas:</p>
+                        {appointments.map(appointment => (
                             <AppointmentsCard
                                 key={appointment.id}
                                 service_id={appointment.service.serviceName}
@@ -98,10 +99,11 @@ export const Appointments = () => {
                                 appointmentId={appointment.id}
                                 onDelete={() => deleteAppointment(tokenStorage, appointment.id)}
                             />
-                        )
-                    }
-                )
-                }
+                        ))}
+                    </>
+                ) : (
+                    <p>No tienes citas programadas.</p>
+                )}
                 {!loadedData
                     ? (<div>LOADING</div>)
                     : (<div>

@@ -128,7 +128,7 @@ export const Profile = () => {
                             />
                             <CButton
                                 className={write === "" ? "cButtonGreen cButtonDesign" : "cButtonDesign"}
-                                title={write === "" ? "Confirm" : "Edit"}
+                                title={write === "" ? "Confirmar" : "Editar"}
                                 functionEmit={write === "" ? updatedData : () => setWrite("")}
                             />
                         </div>)
