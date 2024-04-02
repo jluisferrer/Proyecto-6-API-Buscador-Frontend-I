@@ -1,5 +1,5 @@
-![readme](https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I/assets/157707370/71b8ea83-e490-40af-aab8-005dc1975828) ![image](https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I/assets/157707370/20267e96-8b57-4a3b-862f-c880d1b93602)
 
+![logo2](https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I/assets/157707370/5b47b589-8e70-4f53-8133-9bc89e173cab)
 
 
 # Tatto Studio Frontend ✒️
@@ -8,32 +8,40 @@ Este es mi sexto proyecto en la academia GeekHubs asi como mi primer proyecto us
 
 <summary> Indice 🧾</summary>
 
-- [Tecnologias usadas ⚙](#tecnologias-)
-- [Conexión con el proyecto backend 🗺️](#conexión-)
+- [Tecnologias usadas ⚙](#tecnologias-usadas-)
+- [Conexión con el proyecto backend 🧩](#conexión-con-el-proyecto-backend-)
+- [Esquema backend 🗺️](#esquema-backend-)
 - [Instalación 🏗️](#instalacion-)
 - [Tiempo de realización ⏳](#tiempo-de-realizacion-)
+- [Fallos 🕷️](#fallos-)
+- [Futuras Implementaciones 📈](#futuras-implementaciones-)
 - [Autor 🎨](#autor-)
 
 
 
-## Tecnologias usadas
+## Tecnologias usadas ⚙
 
 ![Static Badge](https://img.shields.io/badge/React-%2361DAFB?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=black) ![Static Badge](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&logo=javascript&logoColor=F0DB4F&labelColor=black)
 
 ![Static Badge](https://img.shields.io/badge/HTML5-%23E34F26?style=for-the-badge&logo=html5&logoColor=%23E34F26&labelColor=black) ![Static Badge](https://img.shields.io/badge/CSS3-%231572B6?style=for-the-badge&logo=css3&logoColor=%231572B6&labelColor=black)
 
-## Conexión con el proyecto backend
+## Conexión con el proyecto backend 🧩
 
 https://github.com/jluisferrer/Proyecto-4-Tattoo-Studio
 
-## Instalación
+## Esquema backend 🗺️
+
+![SchemeStudioTatoo](https://github.com/jluisferrer/Proyecto-4/assets/157707370/e2c1e793-a0b1-4ec8-bc78-fe80c9badaad)
+
+
+## Instalación 🏗️
 
 
 **1**
 
 ***Clonar el repositorio***
 ```sh
-git clone
+git clone https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I.git
 ```
 
 **2**
@@ -52,9 +60,21 @@ npm run dev
 
 ## Tiempo de realización ⏳
 
-
 - Nueve dias
 
+
+## Fallos 🕷️
+
+-Los servicios deben escogerse por ID y no por nombre.
+
+-En los appointments se debería poder escoger la hora además de la fecha.
+
+
+## Futuras Implementaciones 📈
+- Diseño responsive
+- Modificar services desde vista SuperAdmin
+- Modificar mas campos del perfil
+- Crear citas con restricción de fecha y hora
 
 ## AUTOR 🎨
 
