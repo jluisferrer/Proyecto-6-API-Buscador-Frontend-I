@@ -19,7 +19,7 @@ Este es mi sexto proyecto en la academia GeekHubs asi como mi primer proyecto us
 
 
 
-## Tecnologias usadas
+## Tecnologias usadas ⚙
 
 ![Static Badge](https://img.shields.io/badge/React-%2361DAFB?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=black) ![Static Badge](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&logo=javascript&logoColor=F0DB4F&labelColor=black)
 
