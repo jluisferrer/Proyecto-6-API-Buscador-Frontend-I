@@ -66,7 +66,8 @@ npm run dev
 ## Fallos 🕷️
 
 -Los servicios deben escogerse por ID y no por nombre.
--En los appointments se debería poder escoger la hora además de la fecha
+
+-En los appointments se debería poder escoger la hora además de la fecha.
 
 
 ## Futuras Implementaciones 📈
