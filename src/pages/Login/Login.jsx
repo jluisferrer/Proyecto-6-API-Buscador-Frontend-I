@@ -44,7 +44,6 @@ export const Login = () => {
         setCredencialesError((prevState) => ({
             ...prevState,
             [e.target.name + "Error"]: error,
-            //el truco del almen nos dice que seria.. nameError:error, o emailError:error
         }))
     }
 
@@ -78,7 +77,7 @@ export const Login = () => {
                     className={`inputDesign ${credencialesError.emailError !== "" ? "inputDesignError" : ""
                         }`}
                     type={"email"}
-                    placeholder={"email"}
+                    placeholder={"Email"}
                     name={"email"}
                     disabled={""}
                     value={credenciales.email || ""}
@@ -90,7 +89,7 @@ export const Login = () => {
                     className={`inputDesign ${credencialesError.password_hashError !== "" ? "inputDesignError" : ""
                         }`}
                     type={"password"}
-                    placeholder={"password"}
+                    placeholder={"Password"}
                     name={"password_hash"}
                     disabled={""}
                     value={credenciales.password_hash || ""}

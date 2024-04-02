@@ -53,7 +53,7 @@ export const Register = () => {
 
             setMsgError(fetched.message)
             setTimeout(() => {
-                navigate("/")
+                navigate("/login")
             }, 1200)
 
         } catch (error) {
@@ -68,7 +68,7 @@ export const Register = () => {
                     className={`inputDesign ${userError.first_nameError !== "" ? "inputDesignError" : ""
                         }`}
                     type={"text"}
-                    placeholder={"first_name"}
+                    placeholder={"First name"}
                     name={"first_name"}
                     value={user.first_name || ""}
                     onChangeFunction={(e) => inputHandler(e)}
@@ -79,7 +79,7 @@ export const Register = () => {
                     className={`inputDesign ${userError.last_nameError !== "" ? "inputDesignError" : ""
                         }`}
                     type={"text"}
-                    placeholder={"last_name"}
+                    placeholder={"Last name"}
                     name={"last_name"}
                     value={user.last_name || ""}
                     onChangeFunction={(e) => inputHandler(e)}
@@ -90,7 +90,7 @@ export const Register = () => {
                     className={`inputDesign ${userError.emailError !== "" ? "inputDesignError" : ""
                         }`}
                     type={"email"}
-                    placeholder={"email"}
+                    placeholder={"Email"}
                     name={"email"}
                     value={user.email || ""}
                     onChangeFunction={(e) => inputHandler(e)}
@@ -101,7 +101,7 @@ export const Register = () => {
                     className={`inputDesign ${userError.password_hashError !== "" ? "inputDesignError" : ""
                         }`}
                     type={"password"}
-                    placeholder={"password"}
+                    placeholder={"Password"}
                     name={"password_hash"}
                     value={user.password_hash || ""}
                     onChangeFunction={(e) => inputHandler(e)}

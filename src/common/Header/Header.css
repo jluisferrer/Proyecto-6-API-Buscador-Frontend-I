@@ -4,6 +4,9 @@
 
     background-color: black;
     color: whitesmoke;
+    font-size: large;
+    font-weight: bold;
+    text-transform: uppercase;
 
     display: flex;
     flex-direction: row;
