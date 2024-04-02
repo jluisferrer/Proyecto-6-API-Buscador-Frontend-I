@@ -41,7 +41,7 @@ https://github.com/jluisferrer/Proyecto-4-Tattoo-Studio
 
 ***Clonar el repositorio***
 ```sh
-git clone
+git clone https://github.com/jluisferrer/Proyecto-6-API-Buscador-Frontend-I.git
 ```
 
 **2**
